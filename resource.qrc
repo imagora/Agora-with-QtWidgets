@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="icon.png">Resource/icon.png</file>
+        <file alias="audio_off.png">Resource/audio_off.png</file>
+        <file alias="audio_on.png">Resource/audio_on.png</file>
+        <file alias="video_off.png">Resource/video_off.png</file>
+        <file alias="video_on.png">Resource/video_on.png</file>
+        <file alias="end_call.png">Resource/end_call.png</file>
+        <file alias="setting.png">Resource/setting.png</file>
+    </qresource>
+</RCC>
