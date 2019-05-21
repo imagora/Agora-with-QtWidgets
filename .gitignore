@@ -1,0 +1,4 @@
+*.user
+*.icns
+*.iconset
+/lib
