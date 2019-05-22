@@ -42,7 +42,7 @@ JoinRoomWidget::JoinRoomWidget(QWidget *parent)
   join_button_ = new QPushButton("Join", this);
   join_button_->setFixedHeight(40);
 
-  video_setting_button_ = new QPushButton("720 x 1080, 15fps, 1mbps", this);
+  video_setting_button_ = new QPushButton(video_setting_.ToString(), this);
   video_setting_button_->setFixedHeight(40);
 
   int row = 0;
@@ -99,6 +99,7 @@ void JoinRoomWidget::OnVideoSetting() {
   VideoSettingDialog setting_dialog(video_setting_, this);
   if (setting_dialog.exec() == QDialog::Accepted) {
     video_setting_ = setting_dialog.GetVideoSettings();
+    video_setting_button_->setText(video_setting_.ToString());
   }
 }
 

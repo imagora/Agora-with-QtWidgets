@@ -14,15 +14,10 @@ namespace avc {
 
 
 class VideoSettingDialog : public QDialog {
-  Q_OBJECT
-
  public:
-  VideoSettingDialog(VideoSetting setting, QWidget *parent = nullptr);
+  VideoSettingDialog(const VideoSetting &setting, QWidget *parent = nullptr);
 
   VideoSetting GetVideoSettings();
-
- signals:
-  void VideoSettingEvent();
 
  private:
   QLineEdit *width_input_;
@@ -31,7 +26,6 @@ class VideoSettingDialog : public QDialog {
   QLineEdit *bitrate_input_;
   QDialogButtonBox *buttons_;
 };
-
 
 
 }  // namespace avc

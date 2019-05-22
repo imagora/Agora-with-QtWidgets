@@ -44,6 +44,7 @@ HEADERS += \
         src/commons/definitions.h \
         src/controller/agora_rtc_engine.h \
         src/controller/opengl_renderer.h \
+        src/model/device_setting.h \
         src/model/video_renderer.h \
         src/model/video_setting.h \
         src/view/central_widget.h \

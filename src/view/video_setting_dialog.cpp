@@ -12,7 +12,8 @@
 namespace avc {
 
 
-VideoSettingDialog::VideoSettingDialog(VideoSetting setting, QWidget *parent)
+VideoSettingDialog::VideoSettingDialog(const VideoSetting &setting,
+                                       QWidget *parent)
   : QDialog(parent) {
   setModal(true);
   setWindowTitle(tr("Video Setting"));
@@ -22,13 +23,13 @@ VideoSettingDialog::VideoSettingDialog(VideoSetting setting, QWidget *parent)
 
   auto *validotor = new QRegExpValidator(QRegExp("^\\d+$"), this);
 
-  width_input_ = new QLineEdit(QString(setting.width), this);
+  width_input_ = new QLineEdit(QString::number(setting.width), this);
   width_input_->setValidator(validotor);
-  height_input_ = new QLineEdit(QString(setting.height), this);
+  height_input_ = new QLineEdit(QString::number(setting.height), this);
   height_input_->setValidator(validotor);
-  framerate_input_ = new QLineEdit(QString(setting.framerate), this);
+  framerate_input_ = new QLineEdit(QString::number(setting.framerate), this);
   framerate_input_->setValidator(validotor);
-  bitrate_input_ = new QLineEdit(QString(setting.bitrate), this);
+  bitrate_input_ = new QLineEdit(QString::number(setting.bitrate), this);
   bitrate_input_->setValidator(validotor);
   buttons_ = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel,
                                   this);

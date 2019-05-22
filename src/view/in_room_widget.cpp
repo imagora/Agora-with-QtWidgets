@@ -5,6 +5,8 @@
 #include <QIcon>
 #include <QGridLayout>
 
+#include "view/device_setting_dialog.h"
+
 
 namespace avc {
 
@@ -70,7 +72,9 @@ void InRoomWidget::OnMuteAudio() {
 }
 
 void InRoomWidget::OnDeviceSetting() {
-
+  DeviceSettingDialog setting_dialog(this);
+  if (setting_dialog.exec() == QDialog::Accepted) {
+  }
 }
 
 
