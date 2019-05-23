@@ -3,6 +3,7 @@
 
 #include "view/in_room_widget.h"
 #include <QIcon>
+#include <QDebug>
 #include <QGridLayout>
 
 #include "view/device_setting_dialog.h"
@@ -75,6 +76,10 @@ void InRoomWidget::OnDeviceSetting() {
   DeviceSettingDialog setting_dialog(this);
   if (setting_dialog.exec() == QDialog::Accepted) {
   }
+}
+
+void InRoomWidget::OnJoiningChannel(int status) {
+  qDebug() << "joining channel: " << status;
 }
 
 

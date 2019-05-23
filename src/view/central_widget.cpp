@@ -18,6 +18,8 @@ CentralWidget::CentralWidget(QWidget *parent)
   : QWidget(parent) {
   layout_ = new QStackedLayout(this);
 
+  rtc_engine_ = new AgoraRtcEngine(this);
+
   splash_widget_ = new SplashWidget(this);
   join_room_widget_ = new JoinRoomWidget(this);
   in_room_widget_ = new InRoomWidget(this);
@@ -36,6 +38,9 @@ CentralWidget::CentralWidget(QWidget *parent)
   connect(join_room_widget_, SIGNAL(JoinEvent(QString)), this,
           SLOT(OnJoin(QString)));
   connect(in_room_widget_, SIGNAL(EndCallEvent()), this, SLOT(OnEndCall()));
+
+  connect(rtc_engine_, &AgoraRtcEngine::JoiningChannelEvent,
+          in_room_widget_, &InRoomWidget::OnJoiningChannel);
 }
 
 void CentralWidget::OnSplashEnd() {
@@ -48,6 +53,7 @@ void CentralWidget::OnBack() {
 
 void CentralWidget::OnJoin(QString room_name) {
   layout_->setCurrentIndex(static_cast<int>(StackedWidgetIndex::kInRoom));
+  rtc_engine_->JoinChannel(tr(""), room_name, 0);
 }
 
 void CentralWidget::OnEndCall() {

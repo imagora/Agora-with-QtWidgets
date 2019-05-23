@@ -20,12 +20,23 @@ class AgoraRtcEngine :
  public:
   explicit AgoraRtcEngine(QObject *parent = nullptr);
 
+  void JoinChannel(const QString &token, const QString &channel_name,
+                  uint32_t uid);
+
+  int LeaveChannel();
+
+  int MuteLocalAudioStream(bool muted);
+
  public:
   virtual agora::media::IExternalVideoRender *
   createRenderInstance(const agora::media::ExternalVideoRenerContext &context)
   override;
 
  signals:
+  void JoiningChannelEvent(int status);
+
+  void LeavingChannelEvent();
+
   void VideoStoppedEvent();
 
   void JoinChannelSuccessEvent(const char *channel, uint32_t uid, int elapsed);

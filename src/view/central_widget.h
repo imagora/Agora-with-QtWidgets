@@ -10,6 +10,8 @@
 #include "view/join_room_widget.h"
 #include "view/in_room_widget.h"
 
+#include "controller/agora_rtc_engine.h"
+
 
 namespace avc {
 
@@ -36,6 +38,8 @@ class CentralWidget : public QWidget {
   SplashWidget *splash_widget_;
   JoinRoomWidget *join_room_widget_;
   InRoomWidget *in_room_widget_;
+
+  AgoraRtcEngine *rtc_engine_;
 };
 
 

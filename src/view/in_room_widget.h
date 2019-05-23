@@ -34,6 +34,8 @@ class InRoomWidget : public QWidget {
 
   void OnDeviceSetting();
 
+  void OnJoiningChannel(int status);
+
  private:
   bool is_audio_mute_;
   bool is_video_mute_;

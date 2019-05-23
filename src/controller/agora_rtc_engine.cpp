@@ -87,6 +87,15 @@ AgoraRtcEngine::AgoraRtcEngine(QObject *parent)
   rtc_engine_->enableVideo();
 }
 
+void AgoraRtcEngine::JoinChannel(const QString &token,
+                                 const QString &channel_name, uint32_t uid) {
+  rtc_engine_->startPreview();
+  auto ret = rtc_engine_->joinChannel(token.toUtf8().data(),
+                                      channel_name.toUtf8().data(),
+                                      nullptr, uid);
+  emit JoiningChannelEvent(ret);
+}
+
 agora::media::IExternalVideoRender *
 AgoraRtcEngine::createRenderInstance(
     const agora::media::ExternalVideoRenerContext &context) {
